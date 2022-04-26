@@ -6,7 +6,14 @@ import getDetails from './les-jeudis/getDetails.js';
 dotenv.config();
 const MONGODB_URI = process.env.MONGODB_URI;
 
-mongoose.connect(MONGODB_URI);
+mongoose
+	.connect(MONGODB_URI, connectionParams)
+	.then(() => {
+		console.log('Connected to database ');
+	})
+	.catch((err) => {
+		console.error(`Error connecting to the database. \n${err}`);
+	});
 
 const app = express();
 
