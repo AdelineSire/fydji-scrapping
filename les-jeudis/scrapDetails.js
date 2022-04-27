@@ -18,6 +18,7 @@ const scrapDetailsOnOnePage = async (page, url) => {
 
 const scrapDetails = async (urls) => {
 	try {
+		console.time('scrapDetails');
 		const browser = await puppeteer.launch({
 			headless: true,
 			args: ['--no-sandbox'],
@@ -34,6 +35,7 @@ const scrapDetails = async (urls) => {
 				});
 			}
 		}
+		console.timeEnd('scrapDetails');
 		return results;
 	} catch (error) {
 		console.log('Error in scrapDetails: ', error);
