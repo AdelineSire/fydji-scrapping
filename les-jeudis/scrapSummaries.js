@@ -63,6 +63,7 @@ const scrapSummaries = async () => {
 							salary,
 							contract,
 							tags,
+							description: null,
 						});
 					});
 					return jobs;

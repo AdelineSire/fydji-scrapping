@@ -2,7 +2,7 @@ import JobRaw from '../jobRawModel.js';
 
 const getDetailsUrls = async () => {
 	try {
-		const jobs = await JobRaw.find({}).exec();
+		const jobs = await JobRaw.find({ description: null }).exec();
 		const urls = jobs.map((job) => job.url);
 		return urls;
 	} catch (error) {
