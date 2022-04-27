@@ -6,13 +6,8 @@ import getDetails from './les-jeudis/getDetails.js';
 dotenv.config();
 const MONGODB_URI = process.env.MONGODB_URI;
 
-const connectionParams = {
-	useNewUrlParser: true,
-	useCreateIndex: true,
-	useUnifiedTopology: true,
-};
 mongoose
-	.connect(MONGODB_URI, connectionParams)
+	.connect(MONGODB_URI)
 	.then(() => {
 		console.log('Connected to database ');
 	})
