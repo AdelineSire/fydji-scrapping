@@ -6,6 +6,11 @@ import getDetails from './les-jeudis/getDetails.js';
 dotenv.config();
 const MONGODB_URI = process.env.MONGODB_URI;
 
+const connectionParams = {
+	useNewUrlParser: true,
+	useCreateIndex: true,
+	useUnifiedTopology: true,
+};
 mongoose
 	.connect(MONGODB_URI, connectionParams)
 	.then(() => {
