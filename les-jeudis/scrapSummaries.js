@@ -4,7 +4,7 @@ dotenv.config();
 const DOMAIN = process.env.DOMAIN;
 const collectDate = new Date();
 
-const scrapSummaries = async () => {
+const scrapSummaries = async (nbDay = 1) => {
 	const browser = await puppeteer.launch({
 		headless: true,
 		args: ['--no-sandbox'],
@@ -114,7 +114,7 @@ const scrapSummaries = async () => {
 	let isLastPage = false;
 
 	do {
-		await page.goto(`${DOMAIN}/recherche?pg=${currentPage}&posted=1`);
+		await page.goto(`${DOMAIN}/recherche?pg=${currentPage}&posted=${nbDay}`);
 		await checkForModal();
 		await scrapSummaryOnOnePage();
 		isLastPage = await checkIfLastPage();

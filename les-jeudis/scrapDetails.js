@@ -2,7 +2,6 @@ import puppeteer from 'puppeteer';
 
 const scrapDetailsOnOnePage = async (page, url) => {
 	try {
-		console.time('scrapDetailsOnOnePage');
 		await page.goto(url);
 		if ((await page.$('#job-description')) === null) {
 			return;
@@ -10,7 +9,6 @@ const scrapDetailsOnOnePage = async (page, url) => {
 			const description = await page.evaluate(() => {
 				return document.querySelector('#job-description').textContent;
 			});
-			console.timeEnd('scrapDetailsOnOnePage');
 			return { description };
 		}
 	} catch (error) {

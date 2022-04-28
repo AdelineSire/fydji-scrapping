@@ -18,8 +18,9 @@ mongoose
 const app = express();
 
 app.get('/api/actions/scrap/lesjeudis/summary', async (req, res) => {
+	const nbDay = req.query.nbDay;
 	console.time('scrapProcess1');
-	await getSummaries();
+	await getSummaries(nbDay);
 	console.timeEnd('scrapProcess1');
 	res.send('scrap 1 terminé');
 });
