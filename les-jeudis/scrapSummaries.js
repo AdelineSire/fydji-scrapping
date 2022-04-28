@@ -114,7 +114,9 @@ const scrapSummaries = async (nbDay = 1) => {
 	let isLastPage = false;
 
 	do {
-		await page.goto(`${DOMAIN}/recherche?pg=${currentPage}&posted=${nbDay}`);
+		const url = `${DOMAIN}/recherche?pg=${currentPage}&posted=${nbDay}`;
+		console.log('url: ', url);
+		await page.goto(url);
 		await checkForModal();
 		await scrapSummaryOnOnePage();
 		isLastPage = await checkIfLastPage();
