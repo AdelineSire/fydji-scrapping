@@ -17,19 +17,15 @@ mongoose
 
 const app = express();
 
-app.get('/api/actions/scrap/lesjeudis/summary', async (req, res) => {
+app.get('/api/actions/scrap/lesjeudis/summary', (req, res) => {
 	const nbDay = req.query.nbDay;
-	console.time('scrapProcess1');
-	await getSummaries(nbDay);
-	console.timeEnd('scrapProcess1');
-	res.send('scrap 1 terminé');
+	getSummaries(nbDay);
+	res.send('scrapping summaries in progress');
 });
 
 app.get('/api/actions/scrap/lesjeudis/details', async (req, res) => {
-	console.time('scrapProcess2');
-	await getDetails();
-	console.timeEnd('scrapProcess2');
-	res.send('scrap 2 terminé');
+	getDetails();
+	res.send('scrapping details in progress');
 });
 
 app.listen(process.env.PORT || 3000);
