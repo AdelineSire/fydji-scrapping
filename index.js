@@ -23,7 +23,7 @@ app.get('/api/actions/scrap/lesjeudis/summary', (req, res) => {
 	res.send('scrapping summaries in progress');
 });
 
-app.get('/api/actions/scrap/lesjeudis/details', async (req, res) => {
+app.get('/api/actions/scrap/lesjeudis/details', (req, res) => {
 	getDetails();
 	res.send('scrapping details in progress');
 });
